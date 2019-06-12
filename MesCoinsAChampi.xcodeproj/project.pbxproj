@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD26DC9122AFFA2A00B06F12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26DC9022AFFA2A00B06F12 /* AppDelegate.swift */; };
-		CD26DC9322AFFA2A00B06F12 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26DC9222AFFA2A00B06F12 /* FirstViewController.swift */; };
+		CD26DC9322AFFA2A00B06F12 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26DC9222AFFA2A00B06F12 /* ListsViewController.swift */; };
 		CD26DC9522AFFA2A00B06F12 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26DC9422AFFA2A00B06F12 /* SecondViewController.swift */; };
 		CD26DC9822AFFA2A00B06F12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD26DC9622AFFA2A00B06F12 /* Main.storyboard */; };
 		CD26DC9A22AFFA2C00B06F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD26DC9922AFFA2C00B06F12 /* Assets.xcassets */; };
@@ -19,12 +19,14 @@
 		CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343622B008DF00022FCA /* RoundedUIView.swift */; };
 		CD7D343922B0091D00022FCA /* RoundedUIButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */; };
 		CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */; };
+		CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */; };
+		CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD26DC8D22AFFA2A00B06F12 /* MesCoinsAChampi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MesCoinsAChampi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD26DC9022AFFA2A00B06F12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD26DC9222AFFA2A00B06F12 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		CD26DC9222AFFA2A00B06F12 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		CD26DC9422AFFA2A00B06F12 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CD26DC9722AFFA2A00B06F12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD26DC9922AFFA2C00B06F12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		CD7D343622B008DF00022FCA /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
 		CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButtonView.swift; sourceTree = "<group>"; };
 		CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImageView.swift; sourceTree = "<group>"; };
+		CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewCell.swift; sourceTree = "<group>"; };
+		CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,7 @@
 		CD7D342A22AFFA7F00022FCA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CD26DC9222AFFA2A00B06F12 /* FirstViewController.swift */,
+				CD26DC9222AFFA2A00B06F12 /* ListsViewController.swift */,
 				CD26DC9422AFFA2A00B06F12 /* SecondViewController.swift */,
 			);
 			path = ViewControllers;
@@ -93,6 +97,8 @@
 		CD7D342B22AFFA8C00022FCA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */,
+				CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -190,12 +196,14 @@
 			files = (
 				CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */,
 				CD26DC9522AFFA2A00B06F12 /* SecondViewController.swift in Sources */,
+				CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */,
 				CD7D343922B0091D00022FCA /* RoundedUIButtonView.swift in Sources */,
+				CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */,
 				CD7D343322B006C900022FCA /* UIColor+MesCoinsAChampi.swift in Sources */,
 				CD7D342F22B005E100022FCA /* BaseViewController.swift in Sources */,
 				CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */,
 				CD26DC9122AFFA2A00B06F12 /* AppDelegate.swift in Sources */,
-				CD26DC9322AFFA2A00B06F12 /* FirstViewController.swift in Sources */,
+				CD26DC9322AFFA2A00B06F12 /* ListsViewController.swift in Sources */,
 				CD7D343522B007E900022FCA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
