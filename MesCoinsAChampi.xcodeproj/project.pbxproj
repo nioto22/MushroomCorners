@@ -28,6 +28,7 @@
 		CDCA680422B13FCA00CE983E /* Walk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */; };
 		CDCA680622B1493900CE983E /* RoundedUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680522B1493900CE983E /* RoundedUITextField.swift */; };
 		CDCA680822B14DFA00CE983E /* AddMushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680722B14DFA00CE983E /* AddMushViewController.swift */; };
+		CDCA680D22B1A47D00CE983E /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680C22B1A47D00CE983E /* CameraHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,10 @@
 		CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CDCA680522B1493900CE983E /* RoundedUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUITextField.swift; sourceTree = "<group>"; };
 		CDCA680722B14DFA00CE983E /* AddMushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMushViewController.swift; sourceTree = "<group>"; };
+		CDCA680922B19C9500CE983E /* baladeFontainebleau.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = baladeFontainebleau.gpx; sourceTree = "<group>"; };
+		CDCA680A22B19D9B00CE983E /* rambouillet.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rambouillet.gpx; sourceTree = "<group>"; };
+		CDCA680B22B19D9B00CE983E /* saleve.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = saleve.gpx; sourceTree = "<group>"; };
+		CDCA680C22B1A47D00CE983E /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,9 @@
 		CD26DC8422AFFA2A00B06F12 = {
 			isa = PBXGroup;
 			children = (
+				CDCA680A22B19D9B00CE983E /* rambouillet.gpx */,
+				CDCA680B22B19D9B00CE983E /* saleve.gpx */,
+				CDCA680922B19C9500CE983E /* baladeFontainebleau.gpx */,
 				CDCA67F922B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld */,
 				CD26DC8F22AFFA2A00B06F12 /* MesCoinsAChampi */,
 				CD26DC8E22AFFA2A00B06F12 /* Products */,
@@ -129,6 +137,7 @@
 				CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */,
 				CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */,
 				CDCA680522B1493900CE983E /* RoundedUITextField.swift */,
+				CDCA680C22B1A47D00CE983E /* CameraHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				CDCA680222B13FCA00CE983E /* Mush+CoreDataProperties.swift in Sources */,
 				CDCA680422B13FCA00CE983E /* Walk+CoreDataProperties.swift in Sources */,
 				CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */,
+				CDCA680D22B1A47D00CE983E /* CameraHandler.swift in Sources */,
 				CD26DC9522AFFA2A00B06F12 /* SecondViewController.swift in Sources */,
 				CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */,
 				CD7D343922B0091D00022FCA /* RoundedUIButtonView.swift in Sources */,
