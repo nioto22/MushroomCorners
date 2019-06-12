@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Mush" representedClassName="Mush" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mushroomType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictures" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="walk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Walk" inverseName="mushrooms" inverseEntity="Walk" syncable="YES"/>
+    </entity>
+    <entity name="Walk" representedClassName=".Walk" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itinerary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mushList" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="mushrooms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Mush" inverseName="walk" inverseEntity="Mush" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Mush" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Walk" positionX="-423.64453125" positionY="-18.49609375" width="128" height="180"/>
+    </elements>
+</model>

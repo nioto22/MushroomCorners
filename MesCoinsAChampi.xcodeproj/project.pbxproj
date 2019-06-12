@@ -21,6 +21,13 @@
 		CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */; };
 		CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */; };
 		CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */; };
+		CDCA67FB22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67F922B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld */; };
+		CDCA680122B13FCA00CE983E /* Mush+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67FD22B13FCA00CE983E /* Mush+CoreDataClass.swift */; };
+		CDCA680222B13FCA00CE983E /* Mush+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67FE22B13FCA00CE983E /* Mush+CoreDataProperties.swift */; };
+		CDCA680322B13FCA00CE983E /* Walk+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67FF22B13FCA00CE983E /* Walk+CoreDataClass.swift */; };
+		CDCA680422B13FCA00CE983E /* Walk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */; };
+		CDCA680622B1493900CE983E /* RoundedUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680522B1493900CE983E /* RoundedUITextField.swift */; };
+		CDCA680822B14DFA00CE983E /* AddMushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA680722B14DFA00CE983E /* AddMushViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +47,13 @@
 		CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImageView.swift; sourceTree = "<group>"; };
 		CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewCell.swift; sourceTree = "<group>"; };
 		CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushTableViewCell.swift; sourceTree = "<group>"; };
+		CDCA67FA22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MesCoinsAChampi.xcdatamodel; sourceTree = "<group>"; };
+		CDCA67FD22B13FCA00CE983E /* Mush+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mush+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CDCA67FE22B13FCA00CE983E /* Mush+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mush+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CDCA67FF22B13FCA00CE983E /* Walk+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CDCA680522B1493900CE983E /* RoundedUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUITextField.swift; sourceTree = "<group>"; };
+		CDCA680722B14DFA00CE983E /* AddMushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMushViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 		CD26DC8422AFFA2A00B06F12 = {
 			isa = PBXGroup;
 			children = (
+				CDCA67F922B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld */,
 				CD26DC8F22AFFA2A00B06F12 /* MesCoinsAChampi */,
 				CD26DC8E22AFFA2A00B06F12 /* Products */,
 			);
@@ -74,6 +89,7 @@
 			children = (
 				CD26DC9022AFFA2A00B06F12 /* AppDelegate.swift */,
 				CD26DC9622AFFA2A00B06F12 /* Main.storyboard */,
+				CDCA67FC22B13FB100CE983E /* Model */,
 				CD7D342A22AFFA7F00022FCA /* ViewControllers */,
 				CD7D342D22B005BB00022FCA /* Base */,
 				CD7D342B22AFFA8C00022FCA /* Cells */,
@@ -90,6 +106,7 @@
 			children = (
 				CD26DC9222AFFA2A00B06F12 /* ListsViewController.swift */,
 				CD26DC9422AFFA2A00B06F12 /* SecondViewController.swift */,
+				CDCA680722B14DFA00CE983E /* AddMushViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +128,7 @@
 				CD7D343622B008DF00022FCA /* RoundedUIView.swift */,
 				CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */,
 				CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */,
+				CDCA680522B1493900CE983E /* RoundedUITextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -121,6 +139,17 @@
 				CD7D342E22B005E100022FCA /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		CDCA67FC22B13FB100CE983E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CDCA67FD22B13FCA00CE983E /* Mush+CoreDataClass.swift */,
+				CDCA67FE22B13FCA00CE983E /* Mush+CoreDataProperties.swift */,
+				CDCA67FF22B13FCA00CE983E /* Walk+CoreDataClass.swift */,
+				CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCA680322B13FCA00CE983E /* Walk+CoreDataClass.swift in Sources */,
+				CDCA680822B14DFA00CE983E /* AddMushViewController.swift in Sources */,
+				CDCA680222B13FCA00CE983E /* Mush+CoreDataProperties.swift in Sources */,
+				CDCA680422B13FCA00CE983E /* Walk+CoreDataProperties.swift in Sources */,
 				CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */,
 				CD26DC9522AFFA2A00B06F12 /* SecondViewController.swift in Sources */,
 				CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */,
@@ -201,8 +234,11 @@
 				CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */,
 				CD7D343322B006C900022FCA /* UIColor+MesCoinsAChampi.swift in Sources */,
 				CD7D342F22B005E100022FCA /* BaseViewController.swift in Sources */,
+				CDCA680122B13FCA00CE983E /* Mush+CoreDataClass.swift in Sources */,
 				CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */,
+				CDCA67FB22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld in Sources */,
 				CD26DC9122AFFA2A00B06F12 /* AppDelegate.swift in Sources */,
+				CDCA680622B1493900CE983E /* RoundedUITextField.swift in Sources */,
 				CD26DC9322AFFA2A00B06F12 /* ListsViewController.swift in Sources */,
 				CD7D343522B007E900022FCA /* Constants.swift in Sources */,
 			);
@@ -404,6 +440,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CDCA67F922B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CDCA67FA22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodel */,
+			);
+			currentVersion = CDCA67FA22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodel */;
+			path = MesCoinsAChampi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD26DC8522AFFA2A00B06F12 /* Project object */;
 }

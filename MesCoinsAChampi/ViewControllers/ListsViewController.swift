@@ -23,8 +23,6 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         case Mush = 1
     }
     // TableView Vars
-    let walkCellIdentifier = "WalkTableViewCell"
-    let mushCellIdentifier = "MushTableViewCell"
     var displayMode: DisplayMode = DisplayMode.Walks
     var tableViewCellIdentifier: String!
     
@@ -55,26 +53,26 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableViewCellIdentifier = isDisplayWalk() ? walkCellIdentifier : mushCellIdentifier
-        let cell: UITableViewCell!
+        tableViewCellIdentifier = isDisplayWalk() ? WALK_TABLE_VIEW_CELL_IDENTIFIER : MUSH_TABLE_VIEW_CELL_IDENTIFIER
+        var cell: UITableViewCell!
             cell = self.isDisplayWalk() ? self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! WalkTableViewCell
             : self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! MushTableViewCell
         
         if isDisplayWalk() {
-            cell = self.setUpWalkCell(cell: cell as! WalkTableViewCell)
+            cell = setUpWalkCell(cell: cell as! WalkTableViewCell)
         } else {
-            cell = self.setUpMushCell(cell: cell as! MushTableViewCell)
+            cell = setUpMushCell(cell: cell as! MushTableViewCell)
         }
         
         return cell
     }
     
     func setUpWalkCell(cell: WalkTableViewCell) -> WalkTableViewCell{
-        
+        return cell
     }
 
     func setUpMushCell(cell: MushTableViewCell) -> MushTableViewCell{
-        
+        return cell
     }
     
     // MARK: - TableView Delegate
@@ -86,6 +84,13 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - Actions
     
+    @IBAction func addNewMushButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: ADD_NEW_MUSH_SEGUE_IDENTIFIER, sender: self)
+    }
+    
+    
+    @IBAction func searchButtonClicked(_ sender: Any) {
+    }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
     }
@@ -115,4 +120,3 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return (displayMode == DisplayMode.Walks) ? true : false
     }
 }
-

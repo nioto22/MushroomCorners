@@ -28,4 +28,22 @@ class RoundedUIButton: UIButton {
             self.layer.cornerRadius = cornerRadius
         }
     }
+    
+    @IBInspectable var shadowColor: CGColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor {
+        didSet {
+            self.layer.shadowColor = shadowColor
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        updateLayerProperties()
+    }
+    
+    func updateLayerProperties() {
+        //self.layer.shadowColor = UIColor.MesCoinsAChampi.ViewColor.BackgroundBlue.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2.5)
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowRadius = 0.95
+        self.layer.masksToBounds = false
+    }
 }
