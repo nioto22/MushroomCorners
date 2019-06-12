@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMushViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddMushViewController: UIViewController {
     
     // FOR DESIGN
     @IBOutlet weak var addImageButton: RoundedUIButton!
@@ -16,14 +16,17 @@ class AddMushViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var titleTextField: RoundedUITextField!
     @IBOutlet weak var dateTextField: RoundedUITextField!
     @IBOutlet weak var positionTextField: RoundedUITextField!
-
     @IBOutlet weak var mushTypeLabel: UILabel!
     @IBOutlet weak var mushTypeButton: RoundedUIButton!
-    
     @IBOutlet weak var addPicturesButton: RoundedUIButton!
     
     // FOR DATAS
-    let colors = ["Red","Yellow","Green","Blue"]
+    var firstImage: String!
+    var mushTitle: String!
+    var mushDate: String!
+    var mushPosition: String!
+    var mushType: String!
+    var picturesList: [String]! = []
     
     
     override func viewDidLoad() {
@@ -32,30 +35,21 @@ class AddMushViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     }
     
-    // MARK: - PickerView Methods
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return colors.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return colors[row]
-    }
-    
+
     
     
     // MARK: - ACTIONS
     
     @IBAction func titleEditingEndedAction(_ sender: Any) {
+        mushTitle = titleTextField.text
     }
     
     @IBAction func dateEditingAction(_ sender: Any) {
+        mushDate = dateTextField.text
     }
     
     @IBAction func positionEditingAction(_ sender: Any) {
+        mushPosition = positionTextField.text
     }
 
     @IBAction func addImageButtonClicked(_ sender: Any) {
@@ -67,5 +61,9 @@ class AddMushViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func mushTypeButtonClicked(_ sender: Any) {
     }
     
+    @IBAction func calendarButtonClicked(_ sender: Any) {
+    }
     
+    @IBAction func positionButtonClicked(_ sender: Any) {
+    }
 }
