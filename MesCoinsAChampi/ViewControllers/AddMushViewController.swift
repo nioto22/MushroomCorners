@@ -71,7 +71,6 @@ class AddMushViewController: UIViewController {
         mush?.image = firstImage
         mush?.title = titleTextField.text
         mush?.date = dateTextField.text
-        mush?.position = mushPosition
         mush?.mushroomType = mushType
         
         do {

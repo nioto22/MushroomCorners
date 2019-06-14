@@ -120,7 +120,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         cell.mushTitleLabel.text = mushSelect.title ?? ""
         cell.mushDateLabel.text = mushSelect.date ?? ""
-        cell.mushAdressLabel.text = mushSelect.position ?? ""
+        
         
         return cell
     }
