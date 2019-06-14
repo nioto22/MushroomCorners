@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import CoreLocation
 
 class ListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -27,20 +29,59 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     var tableViewCellIdentifier: String!
     
     // Datas Var
-    var walksArray: [String]! = []
-    var mushArray: [String]! = []
+    var walksArray: [Walk]! = []
+    var mushArray: [Mush]! = []
     var walkSelected: String!
     var mushSelected: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        self.tabBarController?.tabBar.isHidden = false
+        
+        //clearDatas()
+        getMushList()
     }
 
+    func clearDatas(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mush")
+                let typePredicate = NSPredicate(format: "title = %@", "")
+                //let sortDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
+                fetchRequest.predicate = typePredicate
+                //fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            mushArray = try context.fetch(fetchRequest) as? [Mush]
+            for mush in mushArray {
+                context.delete(mush)
+            }
+        } catch {
+            print("Context could not send data")
+        }
+    }
+    
+    
     // MARK: - SetUp Design
     func refreshTableView(){
-        
+        walkTableView.reloadData()
+    }
+    
+    func getMushList(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mush")
+//        let typePredicate = NSPredicate(format: "albumInCollection = %@", "true")
+//        let sortDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
+//        fetchRequest.predicate = typePredicate
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            mushArray = try context.fetch(fetchRequest) as? [Mush]
+        } catch {
+            print("Context could not send data")
+        }
+        refreshTableView()
     }
     
     // MARK: - TableView DataSource
@@ -54,14 +95,14 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableViewCellIdentifier = isDisplayWalk() ? WALK_TABLE_VIEW_CELL_IDENTIFIER : MUSH_TABLE_VIEW_CELL_IDENTIFIER
-        var cell: UITableViewCell!
-            cell = self.isDisplayWalk() ? self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! WalkTableViewCell
+           var cell = self.isDisplayWalk() ? self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! WalkTableViewCell
             : self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! MushTableViewCell
         
         if isDisplayWalk() {
             cell = setUpWalkCell(cell: cell as! WalkTableViewCell)
         } else {
-            cell = setUpMushCell(cell: cell as! MushTableViewCell)
+            cell = setUpMushCell(cell: cell as! MushTableViewCell, indexPath: indexPath)
+
         }
         
         return cell
@@ -71,21 +112,57 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
 
-    func setUpMushCell(cell: MushTableViewCell) -> MushTableViewCell{
+    func setUpMushCell(cell: MushTableViewCell, indexPath: IndexPath) -> MushTableViewCell{
+        let mushSelect = mushArray[indexPath.row]
+        if let imagePath = mushSelect.image {
+            cell.mushSmallImageView = getImage(imagePath: imagePath)
+            cell.musBackgroundImageView = getImage(imagePath: imagePath)
+        }
+        cell.mushTitleLabel.text = mushSelect.title ?? ""
+        cell.mushDateLabel.text = mushSelect.date ?? ""
+        cell.mushAdressLabel.text = mushSelect.position ?? ""
+        
         return cell
     }
+    
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
+    // MARK: - Utils
+    
+    func getImage(imagePath: String) -> UIImageView{
+        var imageView: UIImageView! = UIImageView(image: UIImage(named: "mushPictureIcon"))
+        if (imagePath != ""){
+            do {
+                //let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+                let readData = try Data(contentsOf: URL(string: imagePath)!)
+                let retreivedImage = UIImage(data: readData)!
+                imageView = UIImageView(image: retreivedImage)
+            } catch {
+                print("Error")
+            }
+        }
+        return imageView
+    }
 
     
     // MARK: - Actions
     
     @IBAction func addNewMushButtonClicked(_ sender: Any) {
-        performSegue(withIdentifier: ADD_NEW_MUSH_SEGUE_IDENTIFIER, sender: self)
+        let alert = UIAlertController(title: "Créer", message: "", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Une nouvelle balade", style: .default, handler: { action in
+                self.performSegue(withIdentifier: ADD_NEW_WALK_SEGUE_IDENTIFIER, sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "Un nouveau coin à champignon", style: .default, handler: { action in
+                self.performSegue(withIdentifier: ADD_NEW_MUSH_SEGUE_IDENTIFIER, sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     

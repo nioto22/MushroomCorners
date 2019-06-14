@@ -2,7 +2,7 @@
 //  Walk+CoreDataProperties.swift
 //  MesCoinsAChampi
 //
-//  Created by Antoine Proux on 12/06/2019.
+//  Created by Antoine Proux on 14/06/2019.
 //  Copyright © 2019 Antoine Proux. All rights reserved.
 //
 //
@@ -17,15 +17,15 @@ extension Walk {
         return NSFetchRequest<Walk>(entityName: "Walk")
     }
 
-    @NSManaged public var title: String?
-    @NSManaged public var date: String?
     @NSManaged public var comment: String?
+    @NSManaged public var date: String?
     @NSManaged public var id: String?
     @NSManaged public var image: String?
-    @NSManaged public var position: String?
     @NSManaged public var itinerary: String?
     @NSManaged public var mushList: NSObject?
+    @NSManaged public var title: String?
     @NSManaged public var mushrooms: NSOrderedSet?
+    @NSManaged public var position: NSOrderedSet?
 
 }
 
@@ -61,5 +61,40 @@ extension Walk {
 
     @objc(removeMushrooms:)
     @NSManaged public func removeFromMushrooms(_ values: NSOrderedSet)
+
+}
+
+// MARK: Generated accessors for position
+extension Walk {
+
+    @objc(insertObject:inPositionAtIndex:)
+    @NSManaged public func insertIntoPosition(_ value: Position, at idx: Int)
+
+    @objc(removeObjectFromPositionAtIndex:)
+    @NSManaged public func removeFromPosition(at idx: Int)
+
+    @objc(insertPosition:atIndexes:)
+    @NSManaged public func insertIntoPosition(_ values: [Position], at indexes: NSIndexSet)
+
+    @objc(removePositionAtIndexes:)
+    @NSManaged public func removeFromPosition(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInPositionAtIndex:withObject:)
+    @NSManaged public func replacePosition(at idx: Int, with value: Position)
+
+    @objc(replacePositionAtIndexes:withPosition:)
+    @NSManaged public func replacePosition(at indexes: NSIndexSet, with values: [Position])
+
+    @objc(addPositionObject:)
+    @NSManaged public func addToPosition(_ value: Position)
+
+    @objc(removePositionObject:)
+    @NSManaged public func removeFromPosition(_ value: Position)
+
+    @objc(addPosition:)
+    @NSManaged public func addToPosition(_ values: NSOrderedSet)
+
+    @objc(removePosition:)
+    @NSManaged public func removeFromPosition(_ values: NSOrderedSet)
 
 }

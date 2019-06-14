@@ -7,9 +7,16 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mushroomType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pictures" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="position" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Position" inverseName="mush" inverseEntity="Position" syncable="YES"/>
         <relationship name="walk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Walk" inverseName="mushrooms" inverseEntity="Walk" syncable="YES"/>
+    </entity>
+    <entity name="Position" representedClassName="Position" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="mush" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mush" inverseName="position" inverseEntity="Mush" syncable="YES"/>
+        <relationship name="walk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Walk" inverseName="position" inverseEntity="Walk" syncable="YES"/>
     </entity>
     <entity name="Walk" representedClassName=".Walk" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,12 +25,13 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itinerary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mushList" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="mushrooms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Mush" inverseName="walk" inverseEntity="Mush" syncable="YES"/>
+        <relationship name="position" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Position" inverseName="walk" inverseEntity="Position" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Mush" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Mush" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Walk" positionX="-423.64453125" positionY="-18.49609375" width="128" height="180"/>
+        <element name="Position" positionX="-243" positionY="54" width="128" height="120"/>
     </elements>
 </model>
