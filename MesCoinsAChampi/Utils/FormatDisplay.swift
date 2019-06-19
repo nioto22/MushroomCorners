@@ -36,9 +36,26 @@ struct FormatDisplay {
     }
     
     static func date(_ timestamp: Date?) -> String {
-        guard let timestamp = timestamp as Date? else { return "" }
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: timestamp)
+        let months: [String] = ["Jan.","Fev.","Mars","Avr.","Mai","Juin","Juil.","Août","Sept.","Oct.","Nov","Dec."]
+        let date = timestamp ?? Date()
+        let calendar = Calendar.current
+        let year = String(calendar.component(.year, from: date))
+        let month = months[(calendar.component(.month, from: date) - 1)]
+        let day = String(calendar.component(.day, from: date))
+        
+        let mushDate = day + " " + month + " " + year
+        return mushDate
+    }
+    
+    static func getCurrentDateFormated() -> String {
+        let months: [String] = ["Jan.","Fev.","Mars","Avr.","Mai","Juin","Juil.","Août","Sept.","Oct.","Nov","Dec."]
+        let date = Date()
+        let calendar = Calendar.current
+        let year = String(calendar.component(.year, from: date))
+        let month = months[(calendar.component(.month, from: date) - 1)]
+        let day = String(calendar.component(.day, from: date))
+        
+        let mushDate = day + " " + month + " " + year
+        return mushDate
     }
 }

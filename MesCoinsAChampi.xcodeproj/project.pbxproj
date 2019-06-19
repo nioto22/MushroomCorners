@@ -19,6 +19,13 @@
 		CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343622B008DF00022FCA /* RoundedUIView.swift */; };
 		CD7D343922B0091D00022FCA /* RoundedUIButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */; };
 		CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */; };
+		CDAC86AC22B77CCB005079B4 /* walkStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDAC86AB22B77CCB005079B4 /* walkStoryboard.storyboard */; };
+		CDAC86AE22B77F68005079B4 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAC86AD22B77F68005079B4 /* WalkDetailViewController.swift */; };
+		CDAC86B022B77F76005079B4 /* MushDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAC86AF22B77F76005079B4 /* MushDetailViewController.swift */; };
+		CDAC86B222B7C4D7005079B4 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAC86B122B7C4D7005079B4 /* ImageManager.swift */; };
+		CDAC86B422BA3CC9005079B4 /* fontainebleau.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CDAC86B322BA3CC8005079B4 /* fontainebleau.gpx */; };
+		CDAC86B822BA43CC005079B4 /* Mush+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAC86B722BA43CC005079B4 /* Mush+MKAnnotation.swift */; };
+		CDAC86BC22BA936C005079B4 /* baladeRambouillet.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CDAC86BB22BA936C005079B4 /* baladeRambouillet.gpx */; };
 		CDC4A56F22B39BC600D59252 /* AddWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC4A56E22B39BC600D59252 /* AddWalkViewController.swift */; };
 		CDCA67D522B0ED1A00CE983E /* WalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */; };
 		CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */; };
@@ -57,6 +64,13 @@
 		CD7D343622B008DF00022FCA /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
 		CD7D343822B0091D00022FCA /* RoundedUIButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButtonView.swift; sourceTree = "<group>"; };
 		CD7D343A22B0094700022FCA /* RoundedUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImageView.swift; sourceTree = "<group>"; };
+		CDAC86AB22B77CCB005079B4 /* walkStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = walkStoryboard.storyboard; sourceTree = "<group>"; };
+		CDAC86AD22B77F68005079B4 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
+		CDAC86AF22B77F76005079B4 /* MushDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushDetailViewController.swift; sourceTree = "<group>"; };
+		CDAC86B122B7C4D7005079B4 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		CDAC86B322BA3CC8005079B4 /* fontainebleau.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = fontainebleau.gpx; path = ../../Desktop/MonCOinsAChampi/fontainebleau.gpx; sourceTree = "<group>"; };
+		CDAC86B722BA43CC005079B4 /* Mush+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mush+MKAnnotation.swift"; sourceTree = "<group>"; };
+		CDAC86BB22BA936C005079B4 /* baladeRambouillet.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = baladeRambouillet.gpx; path = ../../Desktop/MonCOinsAChampi/baladeRambouillet.gpx; sourceTree = "<group>"; };
 		CDC4A56E22B39BC600D59252 /* AddWalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalkViewController.swift; sourceTree = "<group>"; };
 		CDCA67D422B0ED1A00CE983E /* WalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewCell.swift; sourceTree = "<group>"; };
 		CDCA67D622B0ED3600CE983E /* MushTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +125,8 @@
 		CD26DC8422AFFA2A00B06F12 = {
 			isa = PBXGroup;
 			children = (
+				CDAC86B322BA3CC8005079B4 /* fontainebleau.gpx */,
+				CDAC86BB22BA936C005079B4 /* baladeRambouillet.gpx */,
 				CDCA680A22B19D9B00CE983E /* rambouillet.gpx */,
 				CDCA680B22B19D9B00CE983E /* saleve.gpx */,
 				CDCA680922B19C9500CE983E /* baladeFontainebleau.gpx */,
@@ -133,9 +149,8 @@
 		CD26DC8F22AFFA2A00B06F12 /* MesCoinsAChampi */ = {
 			isa = PBXGroup;
 			children = (
-				CDCFEB6022B3ED49004B649A /* New Group */,
+				CDCFEB6022B3ED49004B649A /* Storyboards */,
 				CD26DC9022AFFA2A00B06F12 /* AppDelegate.swift */,
-				CD26DC9622AFFA2A00B06F12 /* Main.storyboard */,
 				CDCA67FC22B13FB100CE983E /* Model */,
 				CD7D342A22AFFA7F00022FCA /* ViewControllers */,
 				CD7D342D22B005BB00022FCA /* Base */,
@@ -156,6 +171,8 @@
 				CDCA680722B14DFA00CE983E /* AddMushViewController.swift */,
 				CDC4A56E22B39BC600D59252 /* AddWalkViewController.swift */,
 				CDCFEB5A22B3CD2D004B649A /* WalkRunViewController.swift */,
+				CDAC86AD22B77F68005079B4 /* WalkDetailViewController.swift */,
+				CDAC86AF22B77F76005079B4 /* MushDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +199,7 @@
 				CDCFEB5C22B3E01F004B649A /* UnitExtensions.swift */,
 				CDCFEB5E22B3E065004B649A /* FormatDisplay.swift */,
 				CDCFEB6122B3ED82004B649A /* LocationManager.swift */,
+				CDAC86B122B7C4D7005079B4 /* ImageManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -203,15 +221,18 @@
 				CDCA67FE22B13FCA00CE983E /* Mush+CoreDataProperties.swift */,
 				CDCA67FF22B13FCA00CE983E /* Walk+CoreDataClass.swift */,
 				CDCA680022B13FCA00CE983E /* Walk+CoreDataProperties.swift */,
+				CDAC86B722BA43CC005079B4 /* Mush+MKAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CDCFEB6022B3ED49004B649A /* New Group */ = {
+		CDCFEB6022B3ED49004B649A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				CD26DC9622AFFA2A00B06F12 /* Main.storyboard */,
+				CDAC86AB22B77CCB005079B4 /* walkStoryboard.storyboard */,
 			);
-			path = "New Group";
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +300,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAC86B422BA3CC9005079B4 /* fontainebleau.gpx in Resources */,
+				CDAC86AC22B77CCB005079B4 /* walkStoryboard.storyboard in Resources */,
 				CD26DC9D22AFFA2C00B06F12 /* LaunchScreen.storyboard in Resources */,
+				CDAC86BC22BA936C005079B4 /* baladeRambouillet.gpx in Resources */,
 				CD26DC9A22AFFA2C00B06F12 /* Assets.xcassets in Resources */,
 				CD26DC9822AFFA2A00B06F12 /* Main.storyboard in Resources */,
 			);
@@ -341,6 +365,7 @@
 				CDCA680422B13FCA00CE983E /* Walk+CoreDataProperties.swift in Sources */,
 				CD7D343722B008DF00022FCA /* RoundedUIView.swift in Sources */,
 				CDCA680D22B1A47D00CE983E /* CameraHandler.swift in Sources */,
+				CDAC86B222B7C4D7005079B4 /* ImageManager.swift in Sources */,
 				CDCFEB5D22B3E01F004B649A /* UnitExtensions.swift in Sources */,
 				CDCFEB5F22B3E065004B649A /* FormatDisplay.swift in Sources */,
 				CD26DC9522AFFA2A00B06F12 /* MapViewController.swift in Sources */,
@@ -349,9 +374,12 @@
 				CDCFEB6222B3ED82004B649A /* LocationManager.swift in Sources */,
 				CD7D343922B0091D00022FCA /* RoundedUIButtonView.swift in Sources */,
 				CDCA67D722B0ED3600CE983E /* MushTableViewCell.swift in Sources */,
+				CDAC86AE22B77F68005079B4 /* WalkDetailViewController.swift in Sources */,
+				CDAC86B022B77F76005079B4 /* MushDetailViewController.swift in Sources */,
 				CD7D343322B006C900022FCA /* UIColor+MesCoinsAChampi.swift in Sources */,
 				CD7D342F22B005E100022FCA /* BaseViewController.swift in Sources */,
 				CDCA680122B13FCA00CE983E /* Mush+CoreDataClass.swift in Sources */,
+				CDAC86B822BA43CC005079B4 /* Mush+MKAnnotation.swift in Sources */,
 				CD7D343B22B0094700022FCA /* RoundedUIImageView.swift in Sources */,
 				CDCA67FB22B13CFB00CE983E /* MesCoinsAChampi.xcdatamodeld in Sources */,
 				CDCFEB5822B3C54F004B649A /* Position+CoreDataClass.swift in Sources */,

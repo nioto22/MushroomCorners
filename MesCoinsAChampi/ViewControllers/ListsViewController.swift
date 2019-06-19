@@ -31,37 +31,25 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     // Datas Var
     var walksArray: [Walk]! = []
     var mushArray: [Mush]! = []
-    var walkSelected: String!
-    var mushSelected: String!
+    var walkSelected: Walk!
+    var mushSelected: Mush!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.tabBar.isHidden = false
-        
-        //clearDatas()
-        getMushList()
+        walkTableView.dataSource = self
+        walkTableView.delegate = self
+
+//        getMushList()
+//        getWalkList()
     }
 
-    func clearDatas(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mush")
-                let typePredicate = NSPredicate(format: "title = %@", "")
-                //let sortDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
-                fetchRequest.predicate = typePredicate
-                //fetchRequest.sortDescriptors = [sortDescriptor]
-        do {
-            mushArray = try context.fetch(fetchRequest) as? [Mush]
-            for mush in mushArray {
-                context.delete(mush)
-            }
-        } catch {
-            print("Context could not send data")
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        getMushList()
+        getWalkList()
     }
-    
+  
     
     // MARK: - SetUp Design
     func refreshTableView(){
@@ -72,12 +60,20 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Mush")
-//        let typePredicate = NSPredicate(format: "albumInCollection = %@", "true")
-//        let sortDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
-//        fetchRequest.predicate = typePredicate
-//        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             mushArray = try context.fetch(fetchRequest) as? [Mush]
+        } catch {
+            print("Context could not send data")
+        }
+        refreshTableView()
+    }
+    
+    func getWalkList() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Walk")
+        do {
+            walksArray = try context.fetch(fetchRequest) as? [Walk]
         } catch {
             print("Context could not send data")
         }
@@ -99,7 +95,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
             : self.walkTableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! MushTableViewCell
         
         if isDisplayWalk() {
-            cell = setUpWalkCell(cell: cell as! WalkTableViewCell)
+            cell = setUpWalkCell(cell: cell as! WalkTableViewCell, indexPath: indexPath)
         } else {
             cell = setUpMushCell(cell: cell as! MushTableViewCell, indexPath: indexPath)
 
@@ -108,15 +104,21 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func setUpWalkCell(cell: WalkTableViewCell) -> WalkTableViewCell{
+    func setUpWalkCell(cell: WalkTableViewCell, indexPath: IndexPath) -> WalkTableViewCell{
+        let walkSelect = walksArray[indexPath.row]
+        if let imagePath = walkSelect.image {
+            cell.backgroundImageView.image = ImageManager.shared.getImageFromPath(imageName: imagePath, defaultImage: "forestIcon")
+        }
+        cell.walkTitleLabel.text = walkSelect.title ?? ""
+        cell.numberOfMushLabel.text = String(walkSelect.mushrooms!.count)
         return cell
     }
 
     func setUpMushCell(cell: MushTableViewCell, indexPath: IndexPath) -> MushTableViewCell{
         let mushSelect = mushArray[indexPath.row]
         if let imagePath = mushSelect.image {
-            cell.mushSmallImageView = getImage(imagePath: imagePath)
-            cell.musBackgroundImageView = getImage(imagePath: imagePath)
+            cell.mushSmallImageView.image = ImageManager.shared.getImageFromPath(imageName: imagePath, defaultImage: "mushPictureIcon")
+            cell.musBackgroundImageView.image = ImageManager.shared.getImageFromPath(imageName: imagePath, defaultImage: "mushPictureIcon")
         }
         cell.mushTitleLabel.text = mushSelect.title ?? ""
         cell.mushDateLabel.text = mushSelect.date ?? ""
@@ -128,31 +130,22 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    // MARK: - Utils
-    
-    func getImage(imagePath: String) -> UIImageView{
-        var imageView: UIImageView! = UIImageView(image: UIImage(named: "mushPictureIcon"))
-        if (imagePath != ""){
-            do {
-                //let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-                let readData = try Data(contentsOf: URL(string: imagePath)!)
-                let retreivedImage = UIImage(data: readData)!
-                imageView = UIImageView(image: retreivedImage)
-            } catch {
-                print("Error")
-            }
+       if  isDisplayWalk() {
+            walkSelected = walksArray[indexPath.row]
+            performSegue(withIdentifier: WALK_DETAIL_SEGUE_IDENTIFIER, sender: self)
+       } else {
+            mushSelected = mushArray[indexPath.row]
+            performSegue(withIdentifier: MUSH_DETAIL_SEGUE_IDENTIFIER, sender: self)
         }
-        return imageView
     }
+    
+    
 
     
     // MARK: - Actions
     
     @IBAction func addNewMushButtonClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "Créer", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "CRÉER :", message: nil, preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Une nouvelle balade", style: .default, handler: { action in
                 self.performSegue(withIdentifier: ADD_NEW_WALK_SEGUE_IDENTIFIER, sender: self)
             }))
@@ -184,11 +177,15 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - Navigators
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier == "showStationDetailSegue" {
-        //            if let detailVC = segue.destination as? DetailViewController{
-        //                detailVC.selectedStation = selectedStation
-        //            }
-        //        }
+        if segue.identifier == WALK_DETAIL_SEGUE_IDENTIFIER {
+            if let destinationVC = segue.destination as? WalkDetailViewController{
+                destinationVC.walk = walkSelected
+            }
+        } else if segue.identifier == MUSH_DETAIL_SEGUE_IDENTIFIER {
+            if let destinationVC = segue.destination as? MushDetailViewController{
+                destinationVC.mush = mushSelected
+            }
+        }
     }
     
     

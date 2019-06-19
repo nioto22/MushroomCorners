@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class AddMushViewController: UIViewController {
+class AddMushViewController: UIViewController, CLLocationManagerDelegate {
     
     // FOR DESIGN
     
@@ -31,32 +31,47 @@ class AddMushViewController: UIViewController {
     
     let changeImageText = "Changer l'image"
     let datePicker = UIDatePicker()
-    let months: [String] = ["Jan.","Fev.","Mars","Avr.","Mai","Juin","Juil.","Août","Sept.","Oct.","Nov","Dec."]
 
     // FOR DATAS
     var mush: Mush!
     var firstImage: String! = ""
     var mushTitle: String! = ""
     var mushDate: String! = ""
-    var mushPosition: String! = ""
+    var mushPosition: CLLocation!
     var mushType: String! = ""
     var picturesList: [String]! = []
     
     var mushUID: String! = ""
     
+    let months: [String] = ["Jan.","Fev.","Mars","Avr.","Mai","Juin","Juil.","Août","Sept.","Oct.","Nov","Dec."]
+    private let locationManager = LocationManager.shared
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tabBarController?.tabBar.isHidden = true
-        
+        //self.tabBarController?.tabBar.isHidden = true
+        startLocationUpdating()
         showDatePicker()
         
        mushUID = getMushUID()
-        getCurrentDateFormated()
-        mushPosition = positionTextField.text
+        dateTextField.text = FormatDisplay.getCurrentDateFormated()
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func startLocationUpdating() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        mushPosition = locationManager.location
+        //"Latitude: \(mushPosition.coordinate.latitude), longitude: \(mushPosition.coordinate.longitude)"
     }
     
     func createAndSaveTheMush(){
@@ -72,57 +87,42 @@ class AddMushViewController: UIViewController {
         mush?.title = titleTextField.text
         mush?.date = dateTextField.text
         mush?.mushroomType = mushType
+        mush?.position?.latitude = mushPosition.coordinate.latitude
+        mush?.position?.longitude = mushPosition.coordinate.longitude
+        mush?.position?.timestamp = mushPosition.timestamp as NSDate
         
         do {
             try context.save()
         } catch {
             print("context could not save data")
         }
+        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 
     
     
     // MARK: - Utils
-    func getCurrentDateFormated(){
-        
-        let date = Date()
-        let calendar = Calendar.current
-        let year = String(calendar.component(.year, from: date))
-        let month = months[(calendar.component(.month, from: date) - 1)]
-        let day = String(calendar.component(.day, from: date))
-        
-        mushDate = day + " " + month + " " + year
-        dateTextField.text = mushDate
-    }
     
     func getMushUID() -> String {
         return UUID().uuidString
     }
     
-    // MARK: - Image Methods
-    func saveImage(image: UIImage){
-        let data = image.pngData()!
-        do {
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            firstImage = "\(documentsPath)/\(String(mushUID))"
-            try data.write(to: URL(string: firstImage)!, options: .atomic)
-            } catch {
-                print("Error")
-            }
-    }
-    
-    func getImage(imagePath: String){
-        do {
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            let readData = try Data(contentsOf: URL(string: "\(documentsPath)/myImage")!)
-            let retreivedImage = UIImage(data: readData)!
-        } catch {
-        print("Error")
-        }
-    }
  
+    func getCurrentPosition(){
+        mushPosition = locationManager.location
+        print(mushPosition)
+        //positionTextField.text = "Latitude: " + String(mushPosition.coordinate.latitude) + ", longitude: " + String(mushPosition.coordinate.longitude)
+//        let userLocation = locationManager.location!.coordinate
+//        if (userLocation.latitude != 0 && userLocation.longitude != 0) {
+//            mush?.position?.latitude = userLocation.latitude
+//            mush?.position?.longitude = userLocation.longitude
+//        }
+//        return "Latitude: " + String(userLocation .latitude) + ", Longitude: " + String(userLocation.longitude)
+    }
     
+   
     // MARK: - DatePicker actions
     
     func showDatePicker(){
@@ -165,7 +165,6 @@ class AddMushViewController: UIViewController {
     
     @IBAction func titleEditingEndedAction(_ sender: Any) {
         mushTitle = titleTextField.text
-        print(mushTitle)
     }
     
 
@@ -179,16 +178,15 @@ class AddMushViewController: UIViewController {
 
     
     @IBAction func positionEditingAction(_ sender: Any) {
-        mushPosition = positionTextField.text
+        //mushPosition = positionTextField.text
     }
 
     @IBAction func addImageButtonClicked(_ sender: Any) {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (image) in
-            self.saveImage(image: image)
+            self.firstImage = ImageManager.shared.saveImage(image: image, uid: self.mushUID)
             self.addImageButton.setImage(image, for: .normal)
             self.addAnImageLabel.text = self.changeImageText
-            
         }
     }
     
@@ -227,7 +225,6 @@ class AddMushViewController: UIViewController {
     
     @IBAction func saveNewMushClicked(_ sender: Any) {
         createAndSaveTheMush()
-        // Todo storeTheMush()
         // Todo returnBack()
     }
     
