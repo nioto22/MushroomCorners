@@ -238,7 +238,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5k-xd-6tr">
-                                                            <rect key="frame" x="277" y="-2.6666666666666661" width="26" height="35"/>
+                                                            <rect key="frame" x="277" y="-2.6666666666666643" width="26" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="TnM-Cw-HuW"/>
                                                                 <constraint firstAttribute="width" constant="26" id="dFi-VB-bvD"/>
@@ -1064,7 +1064,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-6H-ShQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-6H-ShQ">
                                         <rect key="frame" x="157" y="65" width="202" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="1Q5-tV-7RL"/>

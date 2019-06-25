@@ -50,6 +50,9 @@
 		6EEEE3B78A20F65485F9B0F0 /* Pods-MesCoinsAChampi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesCoinsAChampi.debug.xcconfig"; path = "Target Support Files/Pods-MesCoinsAChampi/Pods-MesCoinsAChampi.debug.xcconfig"; sourceTree = "<group>"; };
 		8B99722CD19F49909A2D95A4 /* Pods-MesCoinsAChampi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesCoinsAChampi.release.xcconfig"; path = "Target Support Files/Pods-MesCoinsAChampi/Pods-MesCoinsAChampi.release.xcconfig"; sourceTree = "<group>"; };
 		A2B619779EA9DE1110AA87E8 /* Pods_MesCoinsAChampi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MesCoinsAChampi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0DB02322C2800700CF1A0E /* rambouillet01.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rambouillet01.gpx; sourceTree = "<group>"; };
+		CD0DB02422C2807500CF1A0E /* rambouillet02.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rambouillet02.gpx; sourceTree = "<group>"; };
+		CD0DB02522C280AB00CF1A0E /* rambouillet03.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rambouillet03.gpx; sourceTree = "<group>"; };
 		CD26DC8D22AFFA2A00B06F12 /* MesCoinsAChampi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MesCoinsAChampi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD26DC9022AFFA2A00B06F12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD26DC9222AFFA2A00B06F12 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +128,9 @@
 		CD26DC8422AFFA2A00B06F12 = {
 			isa = PBXGroup;
 			children = (
+				CD0DB02522C280AB00CF1A0E /* rambouillet03.gpx */,
+				CD0DB02422C2807500CF1A0E /* rambouillet02.gpx */,
+				CD0DB02322C2800700CF1A0E /* rambouillet01.gpx */,
 				CDAC86B322BA3CC8005079B4 /* fontainebleau.gpx */,
 				CDAC86BB22BA936C005079B4 /* baladeRambouillet.gpx */,
 				CDCA680A22B19D9B00CE983E /* rambouillet.gpx */,

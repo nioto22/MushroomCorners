@@ -34,6 +34,11 @@ class WalkRunViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        startRun()
+//       configureView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         startRun()
         configureView()
     }
@@ -171,7 +176,7 @@ class WalkRunViewController: UIViewController {
     // MARK: - Actions :
     
     @IBAction func addMushButtonClicked(_ sender: Any) {
-        self.saveRun()
+        self.saveRun()        
         self.performSegue(withIdentifier: ADD_NEW_MUSH_SEGUE_IDENTIFIER, sender: nil)
     }
     

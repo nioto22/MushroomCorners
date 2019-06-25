@@ -23,17 +23,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getMushList()
-        getWalkList()
-        
-        addAllMapAnnotations()
-        
         let locationRadius = CLLocationDistance(80000)
         let mapCenter = CLLocationCoordinate2D(latitude: 48.42008733448947, longitude: 2.6312255859375)
         let mapRegion = MKCoordinateRegion.init(center: mapCenter, latitudinalMeters: locationRadius,longitudinalMeters: locationRadius)
         mapView.setRegion(mapRegion, animated: false)
         mapView.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getMushList()
+        getWalkList()
+        
+        addAllMapAnnotations()
     }
 
     func addAllMapAnnotations() {
